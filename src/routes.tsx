@@ -9,6 +9,7 @@ import Produto from './pages/Produto'
 import PaginaDeExemplo from './pages/PaginaDeExemplo'
 import Usuarios from './pages/Usuarios'
 import GerenciarUsuarios from './pages/Usuarios/Gerenciar'
+import Voluntarios from './pages/Voluntarios'
 
 export const Rotas = () => {
     
@@ -43,6 +44,11 @@ export const Rotas = () => {
                 <Route
                     path='/exemplo'
                     element={<PaginaDeExemplo />}
+                />
+
+                <Route
+                    path='/voluntarios'
+                    element={<Voluntarios />}
                 />
 
             </Routes>

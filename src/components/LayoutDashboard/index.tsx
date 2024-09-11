@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IToken } from '../../interfaces/token'
 
 //Exemplo enterder undefined ou null
@@ -15,6 +15,14 @@ interface IProps {
 }
 
 export const LayoutDashboard = (props: IProps) => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem('americanos.token'); 
+        navigate('/');
+    };
+
+
     return (
         <>
 
@@ -40,11 +48,9 @@ export const LayoutDashboard = (props: IProps) => {
                 <div className="w-100"></div>
                 <div className="navbar-nav">
                     <div className="nav-item text-nowrap">
-                        <Link
-                            className="nav-link px-3"
-                            to="/">
-                            Sair
-                        </Link>
+                    <button className="nav-link px-3 btn btn-link" onClick={handleLogout}>
+                        Sair
+                    </button>
                     </div>
                 </div>
             </header>
@@ -71,6 +77,14 @@ export const LayoutDashboard = (props: IProps) => {
                                         to={'/usuarios'}
                                     >
                                         Usuários
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link
+                                        className={`nav-link`}
+                                        to={'/voluntarios'}
+                                    >
+                                        Voluntarios
                                     </Link>
                                 </li>
                             </ul>
